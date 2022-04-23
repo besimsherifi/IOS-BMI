@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calcualte View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalcualteViewController" customModule="BMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,26 +126,27 @@
                         <outlet property="heightSlider" destination="dPo-9g-XK7" id="e39-Ts-StD"/>
                         <outlet property="weight" destination="d35-HT-phK" id="oBH-d3-tUG"/>
                         <outlet property="weightSlider" destination="bFU-d6-Rie" id="xnL-hG-vk1"/>
+                        <segue destination="gm5-uo-hTN" kind="presentation" identifier="goToResult" id="E1w-VY-IlN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="37.681159420289859" y="79.6875"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="0C0-dp-l1O">
             <objects>
-                <viewController id="gm5-uo-hTN" sceneMemberID="viewController">
+                <viewController id="gm5-uo-hTN" customClass="ResultViewController" customModule="BMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tql-KJ-Eoq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_background" translatesAutoresizingMaskIntoConstraints="NO" id="Vkb-b3-wvR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <color key="tintColor" systemColor="tintColor"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aYF-fg-xTH">
-                                <rect key="frame" x="86.5" y="355.5" width="241.5" height="185"/>
+                                <rect key="frame" x="86.5" y="328.5" width="241.5" height="185"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR RESULT" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6I-tl-wE2">
                                         <rect key="frame" x="4.5" y="0.0" width="232" height="42"/>
@@ -168,13 +169,16 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwL-6D-i1q">
-                                <rect key="frame" x="0.0" y="834" width="414" height="28"/>
+                                <rect key="frame" x="0.0" y="780" width="414" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="RECALCULATE">
                                     <color key="titleColor" red="0.38461646440000002" green="0.37517398600000001" blue="0.61713868380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="recalculate:" destination="gm5-uo-hTN" eventType="touchUpInside" id="PuS-4V-5Ax"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ie3-uS-vgk"/>
@@ -191,6 +195,10 @@
                             <constraint firstItem="Vkb-b3-wvR" firstAttribute="top" secondItem="Tql-KJ-Eoq" secondAttribute="top" id="XMg-ck-awU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adviceLabel" destination="1Kc-zr-AT6" id="G7J-p9-wY6"/>
+                        <outlet property="bmiLabel" destination="Ke6-4S-np0" id="uiz-B3-vs6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZA-lH-nHZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
